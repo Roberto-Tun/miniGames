@@ -30,16 +30,14 @@ def mystoryWordLength(word):
     for letter in word:
         emptyWordList.append("-")
 
-def checkLetter(letter, word):
-    for i in range(len(word)):
-        character = word[i]
-        if character == letter:
-            emptyWordList[i] = letter
-
-def checklives(letter, word, lives):
-    if letter not in word:
-        lives = int(lives)- 1
+def checkLetter(letter, word, lives):
+    if letter in word:
+        for i in range(len(word)):
+            if word[i] == letter:
+                emptyWordList[i] = letter
         return lives
+    else:
+        return lives-1
 
 
 def checkWin():
@@ -129,13 +127,11 @@ def hangman():
         print("Current lives: ",  lives)
         print("The Word to guess is: ", hidden_string)
         guess = input("Enter you letter guess: ").upper()
-        checkLetter(guess, mystoryWord)
-        lives = checklives(guess,mystoryWord, lives)
+        lives = checkLetter(guess, mystoryWord, lives)
         print(emptyWordList)
-        if lives <= 0:
+        if lives < 0:
             print("The word was: ", mystoryWord)
             gameOver = True
-
 
         if checkWin() == True:
             print("Great Job you Won!")
@@ -143,3 +139,4 @@ def hangman():
 
         
 hangman()
+
