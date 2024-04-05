@@ -30,7 +30,67 @@ def checkWinner(board, row, column, currentPlayer):
         return "Tie"
     else:
         column = column - 1
+
+        #check if the player is in the last position:
+        if row == 5 and column == 6:
+            for i in range(4):
+                try: 
+                    if board[row-i][column] == currentPlayer:
+                        fourWin.append(board[row-i][column])
+                    else: 
+                        fourWin.append(0)
+                        break
+                except:
+                    break
+            if all(ele == fourWin[0] for ele in fourWin) == True:
+                return "Winner"
+            else:
+                fourWin = []
+                return "No Winner"
+            
+        if row == 5 and column == 0:
+            for i in range(4):
+                try: 
+                    if board[row-i][column] == currentPlayer:
+                        fourWin.append(board[row-i][column])
+                    else: 
+                        fourWin.append(0)
+                        break
+                except:
+                    break
+            if all(ele == fourWin[0] for ele in fourWin) == True:
+                return "Winner"
+            else:
+                fourWin = []
+                return "No Winner"
+        elif row != 5:
+            for i in range(4):
+                try: 
+                    if board[row+i][column] == currentPlayer:
+                        fourWin.append(board[row+i][column])
+                    else: 
+                        fourWin.append(0)
+                        break
+                except:
+                    break
+            if all(ele == fourWin[0] for ele in fourWin) == True:
+                return "Winner"
+            else:
+                fourWin = []
+                return "No Winner"
+
+
+
+
+
+
+
+
+
+
+
         #checking vertical up
+        '''
         if board[row-1][column] == currentPlayer:
             for i in range(4):
                 fourWin.append(board[row+1][column])
@@ -41,7 +101,10 @@ def checkWinner(board, row, column, currentPlayer):
         #checking vertical down
         elif board[row-1][column] == currentPlayer:
             for i in range(4):
-                fourWin.append(board[row-i][column])
+                if board[row-i][column] == currentPlayer:
+                    fourWin.append(board[row-i][column])
+                else: 
+                    fourWin.append(0)
             if all(ele == fourWin[0] for ele in fourWin) == True:
                 return "Winner"
             else:
@@ -90,7 +153,7 @@ def checkWinner(board, row, column, currentPlayer):
             if all(ele == fourWin[0] for ele in fourWin) == True:
                 return "Winner"
             else:
-                fourWin = []
+                fourWin = []'''
 
 def conncetFour():
     board = np.zeros((6, 7))
@@ -130,3 +193,4 @@ def conncetFour():
             gameOver = True
 
 conncetFour()
+
