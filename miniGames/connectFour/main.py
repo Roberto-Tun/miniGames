@@ -11,8 +11,6 @@ Description: creating a CLI connect four game
 
 import numpy as np
 
-board = np.zeros((6, 7))
-
 def show_board(board):
     print("\n")
     print(" |1||2||3||4||5||6||7|")
