@@ -8,3 +8,4 @@ from hangTheMan import main
 def hangTheMan():
     main.hangman()
 
+# updated from github
