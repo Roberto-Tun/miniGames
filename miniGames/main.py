@@ -8,10 +8,5 @@ from hangTheMan import main
 def hangTheMan():
     main.hangman()
 
-# loop to continue playing
-table = ["-","-","-",
-         "-","-","-",
-         "-","-","-" ]
-currentPlayer = "X"
 
 gameOver = False
